@@ -1,9 +1,14 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('SCM Checkout') {
       steps {
-        sh 'ls -al'
+        git 'https://github.com/ParkHyeokJin/JenkinsProject'
+      }
+    }
+    stage('Compile') {
+      steps {
+        sh 'mvn clean package'
       }
     }
   }
