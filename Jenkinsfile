@@ -8,7 +8,8 @@ pipeline {
     }
     stage('Compile') {
       steps {
-        bat label: '', script: 'mvn package'
+        def mvnHome = tool 'M3'
+        bat "${mvnHome}\\bin\\mvn package"
       }
     }
   }
